@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Print from '../Display/Print';
 import { mergeSort, bubbleSort } from '../SortingAlgorithms/SortingAlgorithms';
 import './SortingVisualizer.css'
 export default class SortingVisualizer extends Component {
@@ -32,7 +33,8 @@ export default class SortingVisualizer extends Component {
         const sortedArray  = bubbleSort(this.state.array);
         this.setState({array:sortedArray})
     }
-    
+
+
     quickSort(){
         
     }
@@ -42,11 +44,7 @@ export default class SortingVisualizer extends Component {
 
         return (
             <div className='array-container'>
-                {
-                    array.map((value, index)=>(
-                        <div key={index} className='array-bar' style={{height:`${value}px`}}></div>
-                    ))
-                }
+                <Print array={array}/>
                 <button onClick={()=>(this.resetArray())}>Genrate New Array</button>
                 <button onClick={()=>(this.mergeSort())}>Merege Sort</button>
                 <button onClick={()=>(this.quickSort())}>Quick Sort</button>
